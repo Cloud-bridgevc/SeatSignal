@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeatSignal Workspace</title>
+  <meta name="description" content="SeatSignal sample workspace with fictional subscription, contract, license and usage data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1F3A'/%3E%3Crect x='7' y='17' width='4' height='8' rx='1.5' fill='%2394A3B8'/%3E%3Crect x='14' y='12' width='4' height='13' rx='1.5' fill='%23CBD5E1'/%3E%3Crect x='21' y='7' width='4' height='18' rx='1.5' fill='%231F9D6B'/%3E%3C/svg%3E">
+</head>
+<body class="app">
+  <div class="sample-banner" role="note">
+    <strong>SAMPLE DATA</strong>
+    <span>This workspace uses a fictional company (Halcyon Freight Co.) with fictional employees, vendors, contracts and usage reports.</span>
+  </div>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a href="index.html" class="logo logo-light">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#13294B"/><rect x="7" y="17" width="4" height="8" rx="1.5" fill="#94A3B8"/><rect x="14" y="12" width="4" height="13" rx="1.5" fill="#CBD5E1"/><rect x="21" y="7" width="4" height="18" rx="1.5" fill="#1F9D6B"/></svg>
+        SeatSignal
+      </a>
+      <div class="org">
+        <div class="org-name">Halcyon Freight Co.</div>
+        <div class="xs">Sample workspace · data as of <span id="asof"></span></div>
+      </div>
+      <nav id="nav"></nav>
+      <div class="side-foot xs">
+        <button class="link-btn" id="reset-demo">Reset demo state</button>
+        <a href="index.html">← Back to website</a>
+      </div>
+    </aside>
+    <main class="main" id="view" tabindex="-1"></main>
+  </div>
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data/sample-data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

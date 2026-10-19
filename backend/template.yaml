@@ -1,0 +1,211 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SeatSignal backend. PostgreSQL (Aurora Serverless v2) for subscription and license records,
+  S3 for contracts and imported reports, Bedrock for contract analysis and narratives,
+  Lambda for imports and scheduled checks. No function has permissions on vendor or
+  identity-provider systems; SeatSignal cannot disable accounts or cancel subscriptions.
+
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+  BedrockModelId:
+    Type: String
+    Default: anthropic.claude-opus-5-5
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+  PrivateSubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]
+    MemorySize: 512
+    Timeout: 120
+    CodeUri: .
+    VpcConfig:
+      SubnetIds: !Ref PrivateSubnetIds
+      SecurityGroupIds: [!Ref LambdaSecurityGroup]
+    Environment:
+      Variables:
+        DB_HOST: !GetAtt DatabaseCluster.Endpoint.Address
+        DB_PORT: !GetAtt DatabaseCluster.Endpoint.Port
+        DB_NAME: seatsignal
+        DB_SECRET_ARN: !GetAtt DatabaseCluster.MasterUserSecret.SecretArn
+        BEDROCK_MODEL_ID: !Ref BedrockModelId
+        BEDROCK_REGION: !Ref AWS::Region
+
+Resources:
+  # ---------- Storage ----------
+  DataKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: SeatSignal data encryption key
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AccountAdmin
+            Effect: Allow
+            Principal: { AWS: !Sub "arn:aws:iam::${AWS::AccountId}:root" }
+            Action: "kms:*"
+            Resource: "*"
+
+  DocumentsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "seatsignal-${Stage}-documents-${AWS::AccountId}"
+      VersioningConfiguration: { Status: Enabled }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: aws:kms, KMSMasterKeyID: !Ref DataKey }
+            BucketKeyEnabled: true
+      OwnershipControls:
+        Rules: [{ ObjectOwnership: BucketOwnerEnforced }]
+
+  DocumentsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref DocumentsBucket
+      PolicyDocument:
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource: [!GetAtt DocumentsBucket.Arn, !Sub "${DocumentsBucket.Arn}/*"]
+            Condition: { Bool: { "aws:SecureTransport": "false" } }
+
+  # ---------- Database ----------
+  DbSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: SeatSignal database subnets
+      SubnetIds: !Ref PrivateSubnetIds
+
+  LambdaSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SeatSignal Lambda functions
+      VpcId: !Ref VpcId
+
+  DbSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SeatSignal PostgreSQL
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 5432
+          ToPort: 5432
+          SourceSecurityGroupId: !Ref LambdaSecurityGroup
+
+  DatabaseCluster:
+    Type: AWS::RDS::DBCluster
+    DeletionPolicy: Snapshot
+    UpdateReplacePolicy: Snapshot
+    Properties:
+      Engine: aurora-postgresql
+      EngineVersion: "16.4"
+      DatabaseName: seatsignal
+      MasterUsername: seatsignal_admin
+      ManageMasterUserPassword: true
+      StorageEncrypted: true
+      KmsKeyId: !Ref DataKey
+      DBSubnetGroupName: !Ref DbSubnetGroup
+      VpcSecurityGroupIds: [!Ref DbSecurityGroup]
+      BackupRetentionPeriod: 14
+      DeletionProtection: true
+      ServerlessV2ScalingConfiguration: { MinCapacity: 0.5, MaxCapacity: 4 }
+
+  Database:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      Engine: aurora-postgresql
+      DBClusterIdentifier: !Ref DatabaseCluster
+      DBInstanceClass: db.serverless
+      PubliclyAccessible: false
+
+  # Functions run in private subnets without a NAT gateway. Add VPC endpoints for S3 (gateway),
+  # Secrets Manager and Bedrock Runtime (interface). See docs/ARCHITECTURE.md.
+
+  # ---------- Functions ----------
+  ScheduledChecksFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: functions/scheduled-checks/index.handler
+      Timeout: 600
+      Events:
+        Daily:
+          Type: ScheduleV2
+          Properties:
+            ScheduleExpression: "cron(0 6 * * ? *)"
+            ScheduleExpressionTimezone: UTC
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !GetAtt DatabaseCluster.MasterUserSecret.SecretArn
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource: "*"   # narrow to the model/inference-profile ARN for your region
+
+  ContractExtractionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: functions/contract-extraction/index.handler
+      Timeout: 300
+      MemorySize: 1024
+      Events:
+        ContractUploaded:
+          Type: S3
+          Properties:
+            Bucket: !Ref DocumentsBucket
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules: [{ Name: suffix, Value: .pdf }]
+      Policies:
+        - S3ReadPolicy: { BucketName: !Sub "seatsignal-${Stage}-documents-${AWS::AccountId}" }
+        - KMSDecryptPolicy: { KeyId: !Ref DataKey }
+        - Statement:
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !GetAtt DatabaseCluster.MasterUserSecret.SecretArn
+            - Effect: Allow
+              Action: bedrock:InvokeModel
+              Resource: "*"
+
+  UsageImportFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: functions/usage-import/index.handler
+      Events:
+        UsageUploaded:
+          Type: S3
+          Properties:
+            Bucket: !Ref DocumentsBucket
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules: [{ Name: suffix, Value: .csv }]
+      Policies:
+        - S3ReadPolicy: { BucketName: !Sub "seatsignal-${Stage}-documents-${AWS::AccountId}" }
+        - KMSDecryptPolicy: { KeyId: !Ref DataKey }
+        - Statement:
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !GetAtt DatabaseCluster.MasterUserSecret.SecretArn
+
+Outputs:
+  DocumentsBucketName:
+    Value: !Ref DocumentsBucket
+  DatabaseEndpoint:
+    Value: !GetAtt DatabaseCluster.Endpoint.Address

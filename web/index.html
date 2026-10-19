@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeatSignal — SaaS License Optimization</title>
+  <meta name="description" content="SeatSignal consolidates subscription records, analyzes imported usage data, flags potentially unused licenses and prepares evidence-backed renewal decisions for IT and finance teams.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1F3A'/%3E%3Crect x='7' y='17' width='4' height='8' rx='1.5' fill='%2394A3B8'/%3E%3Crect x='14' y='12' width='4' height='13' rx='1.5' fill='%23CBD5E1'/%3E%3Crect x='21' y='7' width='4' height='18' rx='1.5' fill='%231F9D6B'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="SeatSignal home">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0B1F3A"/><rect x="7" y="17" width="4" height="8" rx="1.5" fill="#94A3B8"/><rect x="14" y="12" width="4" height="13" rx="1.5" fill="#CBD5E1"/><rect x="21" y="7" width="4" height="18" rx="1.5" fill="#1F9D6B"/></svg>
+        SeatSignal
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <nav id="nav-links" class="nav-links">
+        <a href="#platform">Platform</a>
+        <a href="#audit">Subscription audit</a>
+        <a href="#use-cases">Use cases</a>
+        <a href="#trust">Trust</a>
+        <a href="#pricing">Pricing</a>
+        <a href="app.html" class="btn btn-ghost btn-sm">Explore the demo</a>
+        <a href="#demo" class="btn btn-primary btn-sm">Request a demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">SaaS subscription &amp; license optimization</p>
+          <h1>Renew software on evidence, not on autopilot.</h1>
+          <p class="lede">SeatSignal brings your subscriptions, contracts, license assignments and imported usage reports into one place. It flags licenses that look underused and shows the data behind each flag, so IT and finance can decide what to keep before the notice deadline.</p>
+          <div class="hero-cta">
+            <a href="#demo" class="btn btn-accent">Request a demo</a>
+            <a href="app.html" class="btn btn-ghost">Explore the sample workspace →</a>
+          </div>
+          <ul class="hero-points">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Usage is reported only from data you import or connect</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Never disables accounts or cancels subscriptions</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Estimated opportunities kept separate from verified savings</li>
+          </ul>
+        </div>
+
+        <figure class="hero-card card" aria-label="Example recommendation using sample data">
+          <div class="hc-top">
+            <span class="badge badge-sample">SAMPLE DATA</span>
+            <span class="badge badge-warn"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 3.5v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="6" cy="8.6" r=".8" fill="currentColor"/></svg>Notice deadline 2026‑10‑29</span>
+          </div>
+          <h3>Review FlowBoard seat count before renewal</h3>
+          <div class="hc-bar" role="img" aria-label="60 licenses: 14 active, 38 assigned but inactive, 8 unassigned">
+            <span class="seg seg-active" style="width:23.3%"></span><span class="seg seg-inactive" style="width:63.3%"></span><span class="seg seg-unassigned" style="width:13.4%"></span>
+          </div>
+          <div class="hc-legend xs">
+            <span><i class="sw sw-active"></i>14 active</span>
+            <span><i class="sw sw-inactive"></i>38 assigned, inactive</span>
+            <span><i class="sw sw-unassigned"></i>8 unassigned</span>
+          </div>
+          <p class="small muted hc-label">What supports this</p>
+          <ul class="hc-evidence small">
+            <li><span class="ev ev-contract">Contract</span>60 licenses, renews 2026‑11‑28, 30‑day notice <span class="muted">(p.1, §3.2)</span></li>
+            <li><span class="ev ev-usage">Usage import</span>14 of 52 assigned users active Aug 2 – Sep 30</li>
+            <li><span class="ev ev-hris">HRIS</span>4 assigned users have left the company</li>
+            <li><span class="ev ev-map">License map</span>48 of 52 also hold TaskTrack</li>
+          </ul>
+          <div class="hc-foot">
+            <div><div class="xs muted">Estimated opportunity</div><div class="num hc-amt">$10.6k – $11.4k / yr</div></div>
+            <span class="badge badge-info">Confidence: High</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="principles">
+      <div class="container principles-grid">
+        <div><h3>Evidence, not assumptions</h3><p>Each recommendation lists the contract clause, roster record or usage export behind it. If no usage data has been imported, SeatSignal says utilization is unknown.</p></div>
+        <div><h3>People make the decisions</h3><p>SeatSignal proposes actions for review. Account changes and cancellations stay with the system owner and go through your approval workflow.</p></div>
+        <div><h3>Honest savings math</h3><p>Opportunities are shown as estimated ranges with the method spelled out. A saving counts as verified only after finance records the amended order or invoice.</p></div>
+      </div>
+    </section>
+
+    <!-- PLATFORM -->
+    <section class="section" id="platform">
+      <div class="container">
+        <p class="eyebrow">Platform</p>
+        <h2 class="section-title">Six capabilities, one renewal workflow</h2>
+        <p class="section-lede">AI does the reading and the drafting. Seat counts, utilization and savings figures come from a deterministic analysis engine, so every number can be traced to a source record.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <h3>Subscription intelligence</h3>
+            <p>Extracts product names, renewal dates, costs, seat counts, notice periods and price caps from order forms and agreements. Each field shows the page and passage it came from, plus a confidence level. Missing terms are flagged.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19c.8-3 3-4.6 5.5-4.6s4.7 1.6 5.5 4.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M16 9h5M16 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <h3>License utilization analysis</h3>
+            <p>Compares your HRIS roster and identity-provider assignments with imported vendor activity reports. It finds inactive and unassigned seats and licenses still held by people who have left.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <h3>Renewal risk monitoring</h3>
+            <p>Scheduled checks track renewal and notice dates. They flag auto-renewals whose notice window has closed, contracts missing from the file, and terms the extractor could not find.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Spend anomaly detection</h3>
+            <p>Uses your recorded invoice history to spot unit-price increases and seat growth that outpaces headcount, and links each finding to the invoices behind it.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="15" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></div>
+            <h3>Consolidation recommendations</h3>
+            <p>Combines overlapping functions, low observed usage and renewal timing to rank the subscriptions most worth investigating. Each one lists its data gaps.</p>
+          </article>
+          <article class="feature">
+            <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <h3>Executive reporting</h3>
+            <p>Produces board-ready summaries of spend, utilization evidence, renewal exposure and proposed actions. Estimated and verified figures are never mixed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section section-tint">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2 class="section-title">From scattered records to an approved renewal plan</h2>
+        <ol class="steps">
+          <li><span class="step-n">1</span><h3>Consolidate</h3><p>Upload contracts and invoices, and import your HRIS roster and identity-provider app assignments.</p></li>
+          <li><span class="step-n">2</span><h3>Import usage</h3><p>Add vendor admin activity exports, or connect an authorized integration. Subscriptions without usage data stay marked "unknown".</p></li>
+          <li><span class="step-n">3</span><h3>Review evidence</h3><p>Go through recommendations ranked by deadline. Each shows its sources, confidence and data gaps.</p></li>
+          <li><span class="step-n">4</span><h3>Approve &amp; verify</h3><p>Owners approve or reject. The system owner makes the change, and finance records the verified saving.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- AUDIT -->
+    <section class="section" id="audit">
+      <div class="container">
+        <p class="eyebrow">Interactive subscription audit</p>
+        <h2 class="section-title">Size the opportunity using your own assumptions</h2>
+        <p class="section-lede">This worksheet is a planning aid. It doesn't know anything about your company. The result is just arithmetic on the numbers you enter here, and it shows the formula. A real audit replaces these assumptions with your records.</p>
+
+        <div class="audit">
+          <form class="audit-inputs card" id="audit-form" novalidate>
+            <div class="audit-row">
+              <div class="field"><label for="a-emp">Employees</label><input class="input num" id="a-emp" type="number" min="1" step="1" value="500"></div>
+              <div class="field"><label for="a-apps">SaaS applications</label><input class="input num" id="a-apps" type="number" min="1" step="1" value="80"></div>
+            </div>
+            <div class="field">
+              <label for="a-spe">Annual SaaS spend per employee (USD)</label>
+              <input class="input num" id="a-spe" type="number" min="0" step="50" value="2500">
+              <span class="hint">Total annual software subscription spend ÷ employees. Use your AP data if you have it.</span>
+            </div>
+            <div class="field">
+              <label for="a-seat">Share of spend that is priced per seat: <output id="a-seat-o" class="num">70%</output></label>
+              <input id="a-seat" type="range" min="10" max="100" step="5" value="70">
+            </div>
+            <fieldset class="field range-pair">
+              <legend>Your assumed share of per-seat licenses that are not needed</legend>
+              <div class="audit-row">
+                <div><label for="a-low" class="xs">Low: <output id="a-low-o" class="num">5%</output></label><input id="a-low" type="range" min="0" max="50" step="1" value="5"></div>
+                <div><label for="a-high" class="xs">High: <output id="a-high-o" class="num">15%</output></label><input id="a-high" type="range" min="0" max="60" step="1" value="15"></div>
+              </div>
+              <span class="hint">This is your assumption, not a benchmark. SeatSignal replaces it with measured utilization once usage reports are imported.</span>
+            </fieldset>
+            <div class="field">
+              <label for="a-usage">Share of applications where you can export user activity: <output id="a-usage-o" class="num">40%</output></label>
+              <input id="a-usage" type="range" min="0" max="100" step="5" value="40">
+            </div>
+            <fieldset class="field">
+              <legend>Readiness checklist</legend>
+              <label class="check"><input type="checkbox" name="ready" value="contracts"> Contracts and order forms are stored in one place</label>
+              <label class="check"><input type="checkbox" name="ready" value="idp"> SSO / identity provider manages app assignments</label>
+              <label class="check"><input type="checkbox" name="ready" value="hris"> HRIS roster export is available</label>
+              <label class="check"><input type="checkbox" name="ready" value="owners"> Each subscription has a named business owner</label>
+            </fieldset>
+          </form>
+
+          <div class="audit-out card" aria-live="polite">
+            <div class="ao-head">
+              <span class="badge badge-info">Illustrative estimate — based only on your inputs</span>
+            </div>
+            <div class="ao-kpis">
+              <div><div class="xs muted">Implied annual SaaS spend</div><div class="ao-num num" id="o-spend">—</div></div>
+              <div><div class="xs muted">Per-seat portion</div><div class="ao-num num" id="o-seat">—</div></div>
+            </div>
+            <div class="ao-range">
+              <div class="xs muted">Potential annual opportunity to investigate</div>
+              <div class="ao-big num" id="o-range">—</div>
+              <div class="ao-meter" aria-hidden="true"><span id="o-meter"></span></div>
+            </div>
+            <dl class="ao-list small">
+              <div><dt>Applications likely renewing in any 90-day window</dt><dd class="num" id="o-ren">—</dd></div>
+              <div><dt>Evidence readiness</dt><dd id="o-ev">—</dd></div>
+              <div><dt>Readiness checklist</dt><dd id="o-ready">—</dd></div>
+            </dl>
+            <details class="ao-formula small">
+              <summary>How this is calculated</summary>
+              <p class="mono" id="o-formula"></p>
+              <p>Renewals in a 90-day window assume renewal dates spread evenly through the year: apps × 90 ÷ 365.</p>
+            </details>
+            <p class="xs muted ao-note">This is not a finding and not a savings commitment. SeatSignal reports utilization only from usage data you import or connect, and savings count as verified only when finance confirms them.</p>
+            <a href="#demo" class="btn btn-primary" id="audit-cta">Run this with real records →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section section-tint" id="use-cases">
+      <div class="container">
+        <p class="eyebrow">Use cases</p>
+        <h2 class="section-title">Built for the people who own the renewal</h2>
+        <div class="tabs" role="tablist" aria-label="Use cases">
+          <button role="tab" id="tab-it" aria-controls="panel-it" aria-selected="true">IT &amp; Operations</button>
+          <button role="tab" id="tab-fin" aria-controls="panel-fin" aria-selected="false" tabindex="-1">Finance</button>
+          <button role="tab" id="tab-proc" aria-controls="panel-proc" aria-selected="false" tabindex="-1">Procurement</button>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-it" aria-labelledby="tab-it">
+          <div class="uc-grid">
+            <div>
+              <h3>Know who holds what, and whether they use it</h3>
+              <ul class="ticks">
+                <li>Map every license to a person through your identity-provider export and HRIS roster.</li>
+                <li>Find licenses still assigned to people who have left, for your offboarding process.</li>
+                <li>Import vendor activity reports and see the activity window and data gaps behind each figure.</li>
+                <li>Recommendations go to the system owner. SeatSignal never touches the accounts.</li>
+              </ul>
+            </div>
+            <div class="uc-quote card"><p class="small muted">Example question SeatSignal answers</p><p class="uc-q">"Which FlowBoard seats are assigned to people with no activity this quarter, and which of those people have left?"</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-fin" aria-labelledby="tab-fin" hidden>
+          <div class="uc-grid">
+            <div>
+              <h3>Forecast renewals and track savings you can defend</h3>
+              <ul class="ticks">
+                <li>Use the renewal calendar to see exposure by month, with auto-renew and notice terms.</li>
+                <li>Catch unit-price increases and seat growth that outpaces headcount, linked to the invoices.</li>
+                <li>Keep a savings ledger that separates estimated, approved and verified amounts.</li>
+                <li>Generate executive summaries that state their data coverage.</li>
+              </ul>
+            </div>
+            <div class="uc-quote card"><p class="small muted">Example question SeatSignal answers</p><p class="uc-q">"How much spend renews in the next 90 days, and how much of it has usage evidence?"</p></div>
+          </div>
+        </div>
+        <div class="tab-panel" role="tabpanel" id="panel-proc" aria-labelledby="tab-proc" hidden>
+          <div class="uc-grid">
+            <div>
+              <h3>Go into every negotiation with the facts</h3>
+              <ul class="ticks">
+                <li>Use contract terms extracted with source passages: notice periods, price caps and seat-reduction clauses.</li>
+                <li>Line up overlapping tools in the same category, along with their renewal dates.</li>
+                <li>Use evidence packs for each vendor conversation, citing usage and assignment data.</li>
+                <li>Run approval workflows with an audit trail of who decided what, and when.</li>
+              </ul>
+            </div>
+            <div class="uc-quote card"><p class="small muted">Example question SeatSignal answers</p><p class="uc-q">"Does the contract let us reduce seats at renewal, and by when do we have to give notice?"</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="section" id="trust">
+      <div class="container trust-grid">
+        <div>
+          <p class="eyebrow">Trust &amp; architecture</p>
+          <h2 class="section-title">Designed to inform decisions, not make them</h2>
+          <ul class="never">
+            <li><strong>No automatic account changes.</strong> SeatSignal has no permission to disable users, remove licenses or cancel subscriptions.</li>
+            <li><strong>No inferred usage.</strong> Without an imported report or an authorized integration, a subscription's utilization is shown as unknown.</li>
+            <li><strong>Every number is traceable.</strong> The AI writes narrative around figures computed from your records. It does not invent them.</li>
+            <li><strong>Read-only integrations.</strong> Connectors request the narrowest read scopes the vendor offers.</li>
+          </ul>
+        </div>
+        <div class="arch card">
+          <p class="xs muted arch-cap">Reference architecture on AWS</p>
+          <div class="arch-flow">
+            <div class="arch-node"><b>Amazon S3</b><span>Contracts &amp; imported reports, encrypted with KMS</span></div>
+            <div class="arch-node"><b>AWS Lambda</b><span>Extraction, import parsing &amp; scheduled renewal checks</span></div>
+            <div class="arch-node"><b>Amazon Bedrock</b><span>Contract field extraction &amp; recommendation narratives</span></div>
+            <div class="arch-node"><b>PostgreSQL</b><span>Subscriptions, licenses, evidence &amp; approvals</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section-tint" id="pricing">
+      <div class="container">
+        <p class="eyebrow">Pricing</p>
+        <h2 class="section-title">Priced per employee, not per dollar saved</h2>
+        <p class="section-lede">Our fee doesn't grow with the size of a recommendation, so it never pays us to overstate savings. <span class="badge badge-sample">Illustrative pricing</span></p>
+        <div class="pricing">
+          <article class="plan card">
+            <h3>Team</h3>
+            <p class="price"><span class="num">$3</span> / employee / month</p>
+            <p class="small muted">For companies up to 250 employees getting renewals under control.</p>
+            <ul class="ticks small">
+              <li>Subscription inventory &amp; renewal calendar</li>
+              <li>Contract extraction (up to 50 documents)</li>
+              <li>CSV usage imports</li>
+              <li>Email renewal alerts</li>
+            </ul>
+            <a href="#demo" class="btn btn-ghost" data-plan="Team">Talk to us</a>
+          </article>
+          <article class="plan card plan-featured">
+            <span class="badge badge-good plan-flag">Most chosen</span>
+            <h3>Business</h3>
+            <p class="price"><span class="num">$5</span> / employee / month</p>
+            <p class="small muted">For IT and finance teams running a quarterly optimization program.</p>
+            <ul class="ticks small">
+              <li>Everything in Team</li>
+              <li>HRIS &amp; identity-provider imports</li>
+              <li>AI recommendations with evidence packs</li>
+              <li>Approval workflow &amp; savings ledger</li>
+              <li>Executive reports</li>
+            </ul>
+            <a href="#demo" class="btn btn-accent" data-plan="Business">Request a demo</a>
+          </article>
+          <article class="plan card">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <p class="small muted">For multi-entity organizations with procurement governance.</p>
+            <ul class="ticks small">
+              <li>Everything in Business</li>
+              <li>Authorized read-only integrations</li>
+              <li>SSO/SAML, SCIM, custom roles</li>
+              <li>Dedicated region &amp; data residency</li>
+              <li>Named customer success manager</li>
+            </ul>
+            <a href="#demo" class="btn btn-ghost" data-plan="Enterprise">Contact sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO FORM -->
+    <section class="section" id="demo">
+      <div class="container demo-grid">
+        <div>
+          <p class="eyebrow">Request a demo</p>
+          <h2 class="section-title">See SeatSignal on a sample of your own subscriptions</h2>
+          <p>In a 30-minute session we walk through the sample workspace and agree on which records to start with. If you'd like, we can then run a scoped audit on a few of your real renewals.</p>
+          <ul class="ticks small">
+            <li>No integration needed for the first session</li>
+            <li>You choose which data is shared and when</li>
+            <li>Read-only access whenever integrations are used</li>
+          </ul>
+          <p class="small"><a href="app.html">Prefer to look around first? Open the sample workspace →</a></p>
+        </div>
+        <form class="card demo-form" id="demo-form" novalidate>
+          <div class="audit-row">
+            <div class="field"><label for="d-first">First name</label><input class="input" id="d-first" name="firstname" autocomplete="given-name" required></div>
+            <div class="field"><label for="d-last">Last name</label><input class="input" id="d-last" name="lastname" autocomplete="family-name" required></div>
+          </div>
+          <div class="field"><label for="d-email">Work email</label><input class="input" id="d-email" name="email" type="email" autocomplete="email" required><span class="error-text" id="d-email-err" hidden></span></div>
+          <div class="field"><label for="d-company">Company</label><input class="input" id="d-company" name="company" autocomplete="organization" required></div>
+          <div class="audit-row">
+            <div class="field">
+              <label for="d-role">Your team</label>
+              <select class="input" id="d-role" name="seatsignal_team" required>
+                <option value="">Select…</option>
+                <option value="it">IT / Operations</option>
+                <option value="finance">Finance</option>
+                <option value="procurement">Procurement</option>
+                <option value="security">Security</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="d-size">Company size</label>
+              <select class="input" id="d-size" name="company_size" required>
+                <option value="">Select…</option>
+                <option>1–249</option><option>250–999</option><option>1,000–4,999</option><option>5,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="d-plan">Plan of interest</label>
+            <select class="input" id="d-plan" name="plan_interest"><option value="">Not sure yet</option><option>Team</option><option>Business</option><option>Enterprise</option></select>
+          </div>
+          <div class="field"><label for="d-msg">What would you like to see? <span class="muted">(optional)</span></label><textarea class="input" id="d-msg" name="message" rows="3"></textarea></div>
+          <label class="check small"><input type="checkbox" id="d-consent" name="consent" required> I agree that SeatSignal may contact me about this request.</label>
+          <p class="error-text" id="d-form-err" hidden>Please complete the required fields.</p>
+          <button class="btn btn-primary demo-submit" type="submit">Request demo</button>
+          <p class="xs muted">Demo site: this form is validated here but <strong>not sent anywhere</strong>. In production it posts to the HubSpot Forms API (see docs/HUBSPOT.md).</p>
+          <div class="demo-success" id="demo-success" hidden role="status">
+            <h3>Thanks — request captured (demo)</h3>
+            <p class="small">In production this request would create or update a HubSpot contact and company and add them to the <em id="d-route">prospect</em> workflow. Nothing was transmitted from this demo site.</p>
+            <a class="btn btn-ghost btn-sm" href="app.html">Open the sample workspace</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="logo logo-light"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#13294B"/><rect x="7" y="17" width="4" height="8" rx="1.5" fill="#94A3B8"/><rect x="14" y="12" width="4" height="13" rx="1.5" fill="#CBD5E1"/><rect x="21" y="7" width="4" height="18" rx="1.5" fill="#1F9D6B"/></svg>SeatSignal</a>
+        <p class="small">Subscription and license optimization for IT and finance teams.</p>
+      </div>
+      <div class="small"><p><strong>Product</strong></p><a href="#platform">Platform</a><a href="#audit">Subscription audit</a><a href="#pricing">Pricing</a><a href="app.html">Sample workspace</a></div>
+      <div class="small"><p><strong>Company</strong></p><a href="#trust">Trust</a><a href="#demo">Contact</a></div>
+    </div>
+    <div class="container xs footer-legal">All customer names, figures and records shown on this site and in the sample workspace are fictional sample data.</div>
+  </footer>
+
+  <script src="js/engine.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
