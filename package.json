@@ -1,0 +1,14 @@
+{
+  "name": "seatsignal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SaaS subscription and license optimization platform for IT and finance teams.",
+  "scripts": {
+    "test": "node scripts/verify-engine.mjs",
+    "verify": "node scripts/verify-engine.mjs",
+    "generate-data": "node scripts/generate-sample-data.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

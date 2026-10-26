@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "outputDirectory": "web",
+  "rewrites": [
+    { "source": "/app", "destination": "/app.html" },
+    { "source": "/app/", "destination": "/app.html" },
+    { "source": "/workspace", "destination": "/app.html" },
+    { "source": "/web", "destination": "/index.html" },
+    { "source": "/web/", "destination": "/index.html" },
+    { "source": "/web/index.html", "destination": "/index.html" },
+    { "source": "/web/app", "destination": "/app.html" },
+    { "source": "/web/app.html", "destination": "/app.html" },
+    { "source": "/web/:path*", "destination": "/:path*" }
+  ]
+}
