@@ -49,3 +49,16 @@ Regenerate the sample data with `node scripts/generate-sample-data.mjs`. After c
 - SeatSignal reports application usage only from imported reports or working, authorized read-only integrations. Otherwise, utilization is shown as **unknown**.
 - SeatSignal never disables accounts or cancels subscriptions. Recommendations are proposals, and approvals record decisions that system owners carry out.
 - Opportunities are **estimated ranges** with the method shown. Savings are **verified** only when someone records the confirming document.
+
+## Launch readiness (glow-up)
+
+- Home page (`web/index.html`): problem section with three sourced statistics, what-we-solve, comparison table, AI section, roadmap, team and FAQ, with scroll-reveal motion that respects reduced motion (`web/css/glow.css`, `glow.js`).
+- New pages: `/privacy`, `/terms` (review drafts). Footer credits the founders.
+- Ship assets: OG image, icons, manifest, sitemap, `_headers`, Vercel security headers, founders JSON-LD.
+- Workspace: fixed a small horizontal overflow on phones.
+
+### Content to confirm before launch
+- **Founders are placeholders:** Oluwaseun Ajayi (Founder/CEO) and Amina Yusuf (Co-founder/CTO) — replace in `web/index.html` (team section, footer) and the JSON-LD.
+- Contact email `hello@seatsignal.site` is a placeholder — create the forward or replace it.
+- Statistics (Zylo 2025 and 2026 SaaS Management Index) — re-check figures and links.
+- Privacy notice and terms need operator details and governing law.
