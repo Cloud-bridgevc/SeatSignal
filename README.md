@@ -54,7 +54,7 @@ Regenerate the sample data with `node scripts/generate-sample-data.mjs`. After c
 
 - Home page (`web/index.html`): problem section with three sourced statistics, what-we-solve, comparison table, AI section, roadmap, team and FAQ, with scroll-reveal motion that respects reduced motion (`web/css/glow.css`, `glow.js`).
 - New pages: `/privacy`, `/terms` (review drafts). Footer credits the founders.
-- Ship assets: OG image, icons, manifest, sitemap, `_headers`, Vercel security headers, founders JSON-LD.
+- Ship assets: OG image, icons, manifest, sitemap, Vercel security headers, founders JSON-LD.
 - Workspace: fixed a small horizontal overflow on phones.
 
 ### Content to confirm before launch
